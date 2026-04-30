@@ -4350,3 +4350,59 @@ canvas{ display:block; width:100%; height:auto; background:#fff; }
   background:var(--tool-color);
   box-shadow:0 0 16px var(--tool-shadow);
 }
+/* =========================
+   Mobile topbar — logo visibile e icone più leggibili
+   ========================= */
+@media (max-width: 560px){
+  .topbar{
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    padding: 8px 10px;
+  }
+
+  .topbar__left,
+  .topbar__right{
+    gap: 8px;
+    align-items: center;
+  }
+
+  .topbar__center{
+    display: flex !important;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .brand{
+    height: 40px;
+    width: auto;
+    max-width: 40px;
+    object-fit: contain;
+  }
+
+  .chip--icon{
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+  }
+
+  .chip--icon img{
+    width: 30px;
+    height: 30px;
+  }
+
+  .topbar__left,
+  .topbar__right{
+    position: relative;
+    z-index: 2;
+  }
+}
