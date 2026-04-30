@@ -7,11 +7,11 @@
   --muted:#c9c9c4;
   --accent:#b31217;
   --accent2:#7f0d12;
---tool-color:#b31217;
---tool-bg:rgba(179,18,23,.10);
---tool-bg-strong:rgba(179,18,23,.18);
---tool-border:rgba(179,18,23,.45);
---tool-shadow:rgba(179,18,23,.16);
+  --tool-color:#b31217;
+  --tool-bg:rgba(179,18,23,.10);
+  --tool-bg-strong:rgba(179,18,23,.18);
+  --tool-border:rgba(179,18,23,.45);
+  --tool-shadow:rgba(179,18,23,.16);
   --shadow: 0 10px 30px rgba(0,0,0,.38);
   --r: 18px;
 
@@ -838,7 +838,7 @@ canvas{ display:block; width:100%; height:auto; background:#fff; }
   .topbar__center{ display:none; }
   .chip--icon{ width: 40px; height: 40px; }
   .chip--icon img{ width: 20px; height: 20px; }
-  .menu__item{ padding: 11px 11px; }
+  .menu__item{ padding: 11px 11px 11px 34px; }
 
   .overlay{
     padding: 10px;
@@ -4334,6 +4334,7 @@ canvas{ display:block; width:100%; height:auto; background:#fff; }
 @media (max-width: 560px){
   .topbar{ padding: 10px 10px; }
   .topbar__center{ display:none; }
+}
 
 .panel.is-active h1{
   text-shadow:0 0 22px var(--tool-shadow);
