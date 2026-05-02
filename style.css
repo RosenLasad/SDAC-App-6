@@ -4350,6 +4350,7 @@ canvas{ display:block; width:100%; height:auto; background:#fff; }
   background:var(--tool-color);
   box-shadow:0 0 16px var(--tool-shadow);
 }
+
 /* =========================
    Mobile topbar — logo visibile e icone più leggibili
    ========================= */
@@ -4405,4 +4406,625 @@ canvas{ display:block; width:100%; height:auto; background:#fff; }
     position: relative;
     z-index: 2;
   }
+}
+
+/* =========================
+   SDAC APP - POLISH DESIGN 2026
+   =========================
+   Override finale non distruttivo: si puo' rimuovere tutto questo blocco
+   per tornare allo stile precedente senza toccare la logica dell'app.
+*/
+
+:root{
+  --bg-deep:#08080a;
+  --panel-glass:rgba(20,20,24,.88);
+  --card-glass:rgba(28,28,34,.80);
+  --card-hover:rgba(35,35,43,.94);
+  --text-soft:#ededeb;
+  --gold:#d9a441;
+  --danger:#ef4444;
+  --cinema-glow:0 18px 45px rgba(0,0,0,.34);
+  --soft-inner:inset 0 1px 0 rgba(255,255,255,.045);
+  --focus-ring:0 0 0 3px var(--tool-shadow);
+  --r-sm:12px;
+  --r-md:16px;
+  --r-lg:22px;
+}
+
+html,body{
+  background:
+    radial-gradient(1000px 700px at 20% -10%, var(--tool-bg-strong), transparent 58%),
+    radial-gradient(900px 620px at 95% 12%, rgba(255,255,255,.035), transparent 52%),
+    linear-gradient(180deg, var(--bg-deep), var(--bg));
+}
+
+body{
+  position:relative;
+  min-height:100vh;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:.16;
+  background-image:
+    linear-gradient(rgba(255,255,255,.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.017) 1px, transparent 1px);
+  background-size:32px 32px;
+  mask-image:radial-gradient(circle at 50% 10%, black, transparent 78%);
+}
+
+.topbar,
+.layout,
+.overlay,
+.dialog,
+.ppDocDialog{
+  position:relative;
+}
+
+.layout{
+  z-index:1;
+  gap:16px;
+}
+
+.topbar{
+  z-index:20;
+  padding:10px 16px;
+  border-bottom:1px solid rgba(255,255,255,.075);
+  background:
+    linear-gradient(180deg, rgba(18,18,22,.94), rgba(10,10,12,.86));
+  box-shadow:0 10px 28px rgba(0,0,0,.22);
+  backdrop-filter:blur(14px);
+}
+
+.brand{
+  height:38px;
+  border-radius:12px;
+  filter:
+    drop-shadow(0 6px 14px rgba(0,0,0,.36))
+    drop-shadow(0 0 16px var(--tool-shadow));
+}
+
+.topbarAccount,
+.chip,
+.btnSmall,
+.ppMini,
+.alphaBtn,
+.menu__toggle,
+.storyboardQuickToolBtn,
+.storyboardActionIconBtn,
+.storyboardGuideBtn,
+.storyboardToolControl,
+.storyboardAspectOption,
+.storyboardToolOption,
+.storyboardTextToolbar__btn{
+  box-shadow:var(--soft-inner);
+}
+
+.topbarAccount:hover,
+.chip:hover,
+.btnSmall:hover,
+.ppMini:hover,
+.alphaBtn:hover,
+.menu__toggle:hover,
+.storyboardQuickToolBtn:hover,
+.storyboardActionIconBtn:hover,
+.storyboardGuideBtn:not(:disabled):hover,
+.storyboardToolControl:hover,
+.storyboardAspectOption:hover,
+.storyboardToolOption:hover,
+.storyboardTextToolbar__btn:hover{
+  border-color:var(--tool-border);
+  background:var(--tool-bg);
+  box-shadow:
+    var(--soft-inner),
+    0 0 0 2px var(--tool-shadow) inset;
+}
+
+.chip:focus-visible,
+.btnSmall:focus-visible,
+.ppMini:focus-visible,
+.alphaBtn:focus-visible,
+.menu__toggle:focus-visible,
+.input:focus-visible,
+.topbarAccount:focus-visible,
+.ppNameInput:focus-visible,
+.ppActorInput:focus-visible,
+.storyboardTextToolbar__size:focus-visible,
+.storyboardTextToolbar__select:focus-visible{
+  outline:none;
+  border-color:var(--tool-color);
+  box-shadow:var(--focus-ring), var(--soft-inner);
+}
+
+.chip--primary{
+  border-color:var(--tool-border);
+  background:
+    linear-gradient(180deg, var(--tool-bg-strong), rgba(28,28,34,.92));
+  box-shadow:
+    0 0 0 2px var(--tool-shadow) inset,
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+.menu{
+  background:
+    linear-gradient(180deg, rgba(24,24,29,.93), rgba(13,13,16,.93));
+  border-color:rgba(255,255,255,.075);
+  box-shadow:
+    0 18px 42px rgba(0,0,0,.30),
+    var(--soft-inner);
+}
+
+.menu__header:hover{
+  background:rgba(28,28,34,.62);
+  box-shadow:inset 0 0 0 1px var(--tool-shadow);
+}
+
+.menu__title{
+  font-size:12px;
+  letter-spacing:.16em;
+}
+
+.menu__item{
+  min-height:46px;
+  padding:12px 12px 12px 40px;
+  border-color:rgba(255,255,255,.075);
+  background:rgba(255,255,255,.035);
+  font-weight:750;
+}
+
+.menu__item::before{
+  left:15px;
+  width:12px;
+  height:12px;
+  box-shadow:
+    0 0 0 4px var(--item-shadow, rgba(179,18,23,.12)),
+    0 0 18px var(--item-shadow, rgba(179,18,23,.16));
+}
+
+.menu__item:hover{
+  background:
+    linear-gradient(180deg, var(--item-bg, rgba(28,28,34,.92)), rgba(28,28,34,.78));
+}
+
+.menu__item.is-active{
+  transform:translateY(-1px);
+  background:
+    linear-gradient(180deg, var(--item-bg, rgba(28,28,34,.92)), rgba(28,28,34,.88));
+}
+
+.badge,
+.nbBadge,
+.ppPlanTag,
+.subStatusBadge{
+  border-color:rgba(255,255,255,.09);
+  background:rgba(28,28,34,.70);
+  box-shadow:var(--soft-inner);
+}
+
+.panel{
+  background:
+    linear-gradient(180deg, var(--tool-bg), transparent 260px),
+    linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012)),
+    var(--panel-glass);
+  border-color:var(--tool-border);
+  border-radius:24px;
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.32),
+    0 0 0 1px var(--tool-shadow) inset;
+}
+
+.panel__header{
+  padding-bottom:12px;
+  margin-bottom:14px;
+  border-bottom:1px solid rgba(255,255,255,.065);
+}
+
+h1{
+  font-size:clamp(25px, 3vw, 34px);
+  letter-spacing:-.03em;
+}
+
+.lead{
+  max-width:760px;
+  font-size:17px;
+  color:#d8d8d4;
+}
+
+.card,
+.ppGroup,
+.nbItem,
+.dictItem,
+.ppRow,
+.ppPlanItem,
+.storyboardLibraryItem,
+.nbReceivedItem,
+.nbPreviewItem,
+.subCard,
+.subSignupCard,
+.subChoiceCard,
+.subInlineMessage{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)),
+    var(--card-glass);
+  border-color:rgba(255,255,255,.075);
+  box-shadow:
+    0 14px 34px rgba(0,0,0,.20),
+    var(--soft-inner);
+}
+
+.card{
+  border-radius:var(--r-lg);
+  transition:
+    transform .14s ease,
+    border-color .16s ease,
+    background .16s ease,
+    box-shadow .16s ease;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:3px;
+  background:linear-gradient(90deg, transparent, var(--tool-color), transparent);
+  opacity:.45;
+  pointer-events:none;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+  border-color:var(--tool-border);
+  background:
+    linear-gradient(180deg, var(--tool-bg), rgba(255,255,255,.02)),
+    var(--card-hover);
+  box-shadow:
+    0 18px 44px rgba(0,0,0,.26),
+    0 0 0 1px var(--tool-shadow) inset;
+}
+
+.card h3{
+  font-size:17px;
+  letter-spacing:.01em;
+}
+
+.card p,
+.dictItem__def,
+.nbMeta,
+.storyboardMeta,
+.storyboardShotBtn__meta,
+.storyboardLibraryMeta,
+.ppRow__meta,
+.ppPlanMeta{
+  color:var(--muted);
+  line-height:1.55;
+}
+
+.input,
+.ppNameInput,
+.ppActorInput,
+.storyboardTextToolbar__size,
+.storyboardTextToolbar__select,
+.storyboardTextToolbar__color{
+  border-color:rgba(255,255,255,.08);
+  background:rgba(5,5,8,.42);
+  box-shadow:var(--soft-inner);
+}
+
+.input::placeholder,
+.ppNameInput::placeholder,
+.ppActorInput::placeholder{
+  color:rgba(201,201,196,.58);
+}
+
+.input:focus,
+.ppNameInput:focus,
+.ppActorInput:focus,
+.storyboardTextToolbar__size:focus,
+.storyboardTextToolbar__select:focus{
+  border-color:var(--tool-color);
+  box-shadow:
+    0 0 0 3px var(--tool-shadow),
+    var(--soft-inner);
+}
+
+.panel[data-panel="home"] .cards{
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  margin-top:18px;
+}
+
+.panel[data-panel="home"] .card{
+  min-height:150px;
+}
+
+.panel[data-panel="home"] .card h3{
+  font-size:18px;
+}
+
+.panel[data-panel="home"] .card:first-child{
+  grid-column:span 2;
+  background:
+    radial-gradient(600px 220px at 20% 0%, rgba(179,18,23,.18), transparent 65%),
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)),
+    var(--card-glass);
+}
+
+.panel[data-panel="lessons"],
+.panel[data-panel="shop"]{
+  min-height:420px;
+}
+
+.panel[data-panel="lessons"] > .muted,
+.panel[data-panel="shop"] > .muted{
+  max-width:620px;
+  padding:18px;
+  border:1px dashed var(--tool-border);
+  border-radius:var(--r-lg);
+  background:var(--tool-bg);
+  line-height:1.6;
+}
+
+.panel[data-panel="lessons"] > .muted::before,
+.panel[data-panel="shop"] > .muted::before{
+  content:"In arrivo";
+  display:inline-flex;
+  margin-right:10px;
+  padding:5px 9px;
+  border-radius:999px;
+  border:1px solid var(--tool-border);
+  color:var(--text);
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+
+.storyboardCanvasCard,
+.storyboardToolsCard,
+.storyboardNotesCard,
+.storyboardDecoupageCard,
+.storyboardShotsCard,
+.storyboardSceneCard,
+.storyboardSurfaceCard{
+  border-radius:22px;
+}
+
+.storyboardCanvasCard{
+  background:
+    radial-gradient(700px 260px at 50% 0%, rgba(250,204,21,.10), transparent 62%),
+    rgba(28,28,34,.84);
+}
+
+.canvasWrap{
+  border-radius:18px;
+  border-color:rgba(255,255,255,.11);
+  box-shadow:
+    0 18px 44px rgba(0,0,0,.28),
+    0 0 0 1px rgba(255,255,255,.04) inset;
+}
+
+.storyboardCanvasStage{
+  border-radius:22px;
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+}
+
+.storyboardQuickToolBtn,
+.storyboardToolControl--color,
+.storyboardToolControl--size,
+.storyboardActionIconBtn,
+.storyboardGuideBtn,
+.storyboardAspectOption,
+.storyboardToolOption,
+.storyboardTextToolbar__btn{
+  border-color:rgba(255,255,255,.08);
+  background:rgba(5,5,8,.36);
+}
+
+.storyboardToolOption.is-active,
+.storyboardQuickToolBtn.is-active,
+.storyboardGuideBtn.is-active,
+.storyboardGuideBtn.is-selected,
+.storyboardAspectOption.is-active,
+.storyboardLineOption.is-active,
+.storyboardArrowOption.is-active,
+.storyboardCircleOption.is-active,
+.storyboardTextToolbar__btn.is-active{
+  border-color:var(--tool-color);
+  background:var(--tool-bg-strong);
+  box-shadow:
+    0 0 0 2px var(--tool-shadow) inset,
+    0 10px 22px rgba(0,0,0,.18);
+}
+
+.storyboardToolsDetails,
+.storyboardNotesDetails,
+.storyboardDecoupageDetails{
+  border-color:rgba(255,255,255,.08);
+  background:rgba(5,5,8,.24);
+}
+
+.storyboardToolsSummary,
+.storyboardNotesSummary,
+.storyboardDecoupageSummary,
+.ppGroup__head,
+.nbItem__summary{
+  transition:background .16s ease, color .16s ease;
+}
+
+.storyboardToolsSummary:hover,
+.storyboardNotesSummary:hover,
+.storyboardDecoupageSummary:hover,
+.ppGroup__head:hover,
+.nbItem__summary:hover{
+  background:var(--tool-bg);
+}
+
+.storyboardShotBtn{
+  border-color:rgba(255,255,255,.075);
+  background:rgba(5,5,8,.34);
+  box-shadow:var(--soft-inner);
+}
+
+.storyboardShotBtn:hover,
+.storyboardShotBtn.is-active{
+  border-color:var(--tool-border);
+  background:var(--tool-bg);
+  box-shadow:
+    0 0 0 2px var(--tool-shadow) inset,
+    0 10px 22px rgba(0,0,0,.16);
+}
+
+.storyboardTextToolbar,
+.storyboardToolPopover,
+.storyboardAspectMenu,
+.storyboardTextToolbar__popover{
+  border-color:rgba(255,255,255,.09);
+  background:rgba(18,20,27,.98);
+  box-shadow:
+    0 18px 44px rgba(0,0,0,.32),
+    var(--soft-inner);
+}
+
+.dialog,
+.overlay__panel,
+.ppDocDialog{
+  border-color:rgba(255,255,255,.08);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.010)),
+    rgba(20,20,24,.98);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.42),
+    var(--soft-inner);
+}
+
+.overlay__header,
+.ppDocDialog__top{
+  border-bottom-color:rgba(255,255,255,.075);
+}
+
+.ppDocPage{
+  box-shadow:
+    0 22px 54px rgba(0,0,0,.34),
+    0 0 0 1px rgba(255,255,255,.10);
+}
+
+.nbSummaryItem,
+.ppProgress,
+.ppQty,
+.ppCount,
+.ppGroup__count{
+  box-shadow:var(--soft-inner);
+}
+
+.nbSummaryItem:hover,
+.ppPlanItem:hover,
+.nbItem:hover,
+.dictItem:hover{
+  border-color:var(--tool-border);
+  box-shadow:
+    0 14px 34px rgba(0,0,0,.20),
+    0 0 0 1px var(--tool-shadow) inset;
+}
+
+@media (max-width:960px){
+  .panel[data-panel="home"] .cards{
+    grid-template-columns:1fr;
+  }
+
+  .panel[data-panel="home"] .card:first-child{
+    grid-column:auto;
+  }
+}
+
+@media (max-width:560px){
+  .layout{
+    padding:10px;
+    gap:10px;
+  }
+
+  .panel{
+    border-radius:20px;
+    padding:14px;
+  }
+
+  .topbar{
+    min-height:60px;
+    padding:8px 10px;
+  }
+
+  .brand{
+    height:38px;
+    max-width:38px;
+  }
+
+  .menu{
+    border-radius:18px;
+  }
+
+  .menu__item{
+    min-height:44px;
+  }
+
+  h1{
+    font-size:24px;
+  }
+
+  .lead{
+    font-size:15px;
+  }
+
+  .card{
+    border-radius:18px;
+  }
+
+  .panel[data-panel="lessons"] > .muted,
+  .panel[data-panel="shop"] > .muted{
+    padding:14px;
+  }
+}
+
+/* =========================
+   SDAC APP - Menu strumenti colorato
+   ========================= */
+
+.menu__item{
+  background:
+    linear-gradient(90deg, var(--item-bg, rgba(28,28,34,.92)) 0%, rgba(28,28,34,.74) 72%);
+  border-color: var(--item-border, rgba(255,255,255,.08));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035),
+    inset 4px 0 0 var(--item-color, var(--accent));
+}
+
+.menu__item::before{
+  background: var(--item-color, var(--accent));
+  box-shadow:
+    0 0 0 4px var(--item-shadow, rgba(179,18,23,.14)),
+    0 0 18px var(--item-shadow, rgba(179,18,23,.18));
+}
+
+.menu__item:hover{
+  background:
+    linear-gradient(90deg, var(--item-bg, rgba(28,28,34,.92)) 0%, rgba(38,38,46,.88) 78%);
+  border-color: var(--item-color, var(--accent));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.045),
+    inset 4px 0 0 var(--item-color, var(--accent)),
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+.menu__item.is-active{
+  background:
+    linear-gradient(90deg, var(--item-bg, rgba(28,28,34,.92)) 0%, rgba(38,38,46,.96) 78%);
+  border-color: var(--item-color, var(--accent));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    inset 4px 0 0 var(--item-color, var(--accent)),
+    0 0 0 2px var(--item-shadow, rgba(179,18,23,.14)) inset,
+    0 12px 28px rgba(0,0,0,.22);
 }
